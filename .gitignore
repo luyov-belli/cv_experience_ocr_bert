@@ -1,0 +1,43 @@
+# --- Entorno local y secretos ---
+.venv/
+venv/
+.env
+
+# --- Datos pesados o regenerables (ver README > Reproducción) ---
+# Imágenes y metadatos muestreados: se regeneran con src/download_data.py
+data/raw/*
+# Salida cruda de PaddleOCR (un JSON por CV): se regenera con src/ocr_extraction.py
+data/ocr/*
+# Texto limpio por CV: se regenera con src/preprocessing.py
+data/processed/*
+!data/*/.gitkeep
+# data/splits/ y data/sampled_ids.csv SÍ se versionan (solo IDs + objetivo)
+
+# --- Pesos de modelos (no se suben; se regeneran con los scripts de entrenamiento) ---
+models/*
+!models/baselines/
+!models/bert/
+models/baselines/*
+models/bert/*
+!models/*/.gitkeep
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.joblib
+*.pkl
+*.pdparams
+
+# --- Imágenes sueltas (las figuras de output/ sí se versionan) ---
+*.png
+*.jpg
+*.jpeg
+!output/figures/*.png
+
+# --- Python / Jupyter / sistema ---
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+.streamlit/secrets.toml
