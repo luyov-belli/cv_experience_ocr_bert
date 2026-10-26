@@ -1,0 +1,111 @@
+id,job,type,ref,ocr,failure_mode
+00255,software_developers,substitute,ci,cl,letras/puntuación
+00314,software_developers,substitute,ui,ul,letras/puntuación
+00606,elementary_middle_school_teachers,substitute,2021.07-2023.01,2021.07-2023.0,rango de fechas truncado/alterado
+01149,software_developers,substitute,ci,cl,letras/puntuación
+02133,elementary_middle_school_teachers,substitute,2020.01-2023.01,2020.01-2023.0,rango de fechas truncado/alterado
+02492,elementary_middle_school_teachers,substitute,2020.04-2022.06,2020.04-2022.0,rango de fechas truncado/alterado
+02577,construction_laborers,substitute,[EMAIL],[EMAIL],letras/puntuación (en email)
+02606,software_developers,substitute,ui,ul,letras/puntuación
+02883,elementary_middle_school_teachers,substitute,2020.01-2022.06,2020.01-2022.0,rango de fechas truncado/alterado
+02903,software_developers,substitute,ui,ul,letras/puntuación
+03517,software_developers,substitute,ui,ul,letras/puntuación
+04108,software_developers,substitute,ci,cl,letras/puntuación
+04219,software_developers,substitute,ci,cl,letras/puntuación
+04284,software_developers,substitute,ui,ul,letras/puntuación
+04373,software_developers,substitute,[EMAIL],[EMAIL],letras/puntuación (en email)
+04407,software_developers,substitute,ci,cl,letras/puntuación
+04591,elementary_middle_school_teachers,substitute,2021.01-2023.01,2021.01-2023.,rango de fechas truncado/alterado
+08199,software_developers,substitute,ci,cl,letras/puntuación
+08329,software_developers,substitute,ui,ul,letras/puntuación
+08360,software_developers,substitute,ui,ul,letras/puntuación
+08583,software_developers,substitute,ci,cl,letras/puntuación
+08643,accountants_auditors,substitute,[EMAIL],[EMAIL],letras/puntuación (en email)
+08737,software_developers,substitute,ui,ul,letras/puntuación
+09006,software_developers,substitute,ci,cl,letras/puntuación
+09125,software_developers,substitute,ci,cl,letras/puntuación
+09157,software_developers,substitute,ci,cl,letras/puntuación
+09197,software_developers,substitute,ui,ul,letras/puntuación
+09238,software_developers,substitute,ui,ul,letras/puntuación
+09668,software_developers,substitute,ui,ul,letras/puntuación
+09884,software_developers,substitute,ui,ul,letras/puntuación
+09993,software_developers,substitute,ui,ul,letras/puntuación
+10173,software_developers,substitute,ci,cl,letras/puntuación
+10223,software_developers,substitute,ci,cl,letras/puntuación
+10320,software_developers,substitute,ui,ul,letras/puntuación
+10860,software_developers,substitute,ui,ul,letras/puntuación
+11219,software_developers,substitute,[EMAIL],[EMAIL],letras/puntuación (en email)
+13861,elementary_middle_school_teachers,substitute,2019.02-2020.05,2019.02-2020.0,rango de fechas truncado/alterado
+14315,elementary_middle_school_teachers,substitute,2021.06-2023.01,2021.06-2023.,rango de fechas truncado/alterado
+14828,elementary_middle_school_teachers,substitute,2020.10-2023.01,2020.10-2023.0,rango de fechas truncado/alterado
+15530,elementary_middle_school_teachers,substitute,2020.01-2023.01,2020.01-2023.0,rango de fechas truncado/alterado
+15564,elementary_middle_school_teachers,substitute,2018.01-2023.01,2018.01-2023.,rango de fechas truncado/alterado
+16103,elementary_middle_school_teachers,substitute,2022.03-2023.01,2022.03-2023.,rango de fechas truncado/alterado
+16222,elementary_middle_school_teachers,substitute,2020.04-2023.01,2020.04-2023.0,rango de fechas truncado/alterado
+16418,elementary_middle_school_teachers,substitute,2020.02-2023.01,2020.02-2023.0,rango de fechas truncado/alterado
+16910,elementary_middle_school_teachers,substitute,[EMAIL],[EMAIL],letras/puntuación (en email)
+25027,elementary_middle_school_teachers,substitute,2020.10-2023.01,2020.10-2023.0,rango de fechas truncado/alterado
+25269,elementary_middle_school_teachers,substitute,2017.10-2023.01,2017.10-2023.,rango de fechas truncado/alterado
+25512,software_developers,substitute,ci,cl,letras/puntuación
+25529,elementary_middle_school_teachers,substitute,2020.05-2023.01,2020.05-2023.0,rango de fechas truncado/alterado
+25604,software_developers,substitute,ci,cl,letras/puntuación
+25712,software_developers,substitute,ci,cl,letras/puntuación
+25809,elementary_middle_school_teachers,substitute,2020.07-2022.06,2020.07-2022.0,rango de fechas truncado/alterado
+25818,elementary_middle_school_teachers,substitute,2018.09-2023.01,2018.09-2023.,rango de fechas truncado/alterado
+26040,software_developers,substitute,ci,cl,letras/puntuación
+26272,software_developers,substitute,ui,ul,letras/puntuación
+27011,elementary_middle_school_teachers,substitute,2018.04-2020.06,2018.04-2020.,rango de fechas truncado/alterado
+27152,software_developers,substitute,ci,cl,letras/puntuación
+27226,elementary_middle_school_teachers,substitute,2019.11-2022.01,2019.11-2022.0,rango de fechas truncado/alterado
+27639,elementary_middle_school_teachers,substitute,2020.07-2022.07,2020.07-2022.,rango de fechas truncado/alterado
+29251,software_developers,substitute,ui,ul,letras/puntuación
+29547,software_developers,substitute,ui,ul,letras/puntuación
+30280,software_developers,substitute,ui,ul,letras/puntuación
+31051,software_developers,substitute,ui,ul,letras/puntuación
+31227,software_developers,substitute,ci,cl,letras/puntuación
+31472,software_developers,substitute,ui,ul,letras/puntuación
+44535,software_developers,substitute,ui,ul,letras/puntuación
+44559,software_developers,substitute,api,apl,letras/puntuación
+44954,software_developers,substitute,ui,ul,letras/puntuación
+45318,software_developers,substitute,ui,ul,letras/puntuación
+45453,software_developers,substitute,ci,cl,letras/puntuación
+45663,elementary_middle_school_teachers,substitute,2020.03-2023.01,2020.03-2023.,rango de fechas truncado/alterado
+45811,elementary_middle_school_teachers,substitute,[EMAIL],[EMAIL],letras/puntuación (en email)
+46226,elementary_middle_school_teachers,substitute,[EMAIL],[EMAIL],letras/puntuación (en email)
+46264,software_developers,substitute,ci,cl,letras/puntuación
+46314,software_developers,substitute,ui,ul,letras/puntuación
+46361,software_developers,substitute,ui,ul,letras/puntuación
+46944,software_developers,substitute,ci,cl,letras/puntuación
+47013,elementary_middle_school_teachers,substitute,[EMAIL],[EMAIL],letras/puntuación (en email)
+47045,elementary_middle_school_teachers,substitute,[EMAIL],[EMAIL],letras/puntuación (en email)
+47372,elementary_middle_school_teachers,substitute,2019.07-2021.07,2019.07-2021.0,rango de fechas truncado/alterado
+47574,registered_nurses,substitute,[EMAIL],[EMAIL],letras/puntuación (en email)
+47662,elementary_middle_school_teachers,substitute,2020.09-2023.01,2020.09-2023.0,rango de fechas truncado/alterado
+47851,software_developers,substitute,ci,cl,letras/puntuación
+48015,software_developers,substitute,ci,cl,letras/puntuación
+48105,registered_nurses,substitute,[EMAIL],[EMAIL],letras/puntuación (en email)
+48206,elementary_middle_school_teachers,substitute,2020.06-2022.04,2020.06-2022.,rango de fechas truncado/alterado
+48304,elementary_middle_school_teachers,substitute,2019.09-2023.01,2019.09-2023.0,rango de fechas truncado/alterado
+48341,elementary_middle_school_teachers,substitute,2021.01-2023.01,2021.01-2023.0,rango de fechas truncado/alterado
+48744,software_developers,substitute,ci,cl,letras/puntuación
+48786,software_developers,substitute,ci,cl,letras/puntuación
+50533,software_developers,substitute,ci,cl,letras/puntuación
+50552,software_developers,substitute,ui,ul,letras/puntuación
+50595,software_developers,substitute,ui,ul,letras/puntuación
+50658,software_developers,substitute,ui,ul,letras/puntuación
+51093,software_developers,substitute,ui,ul,letras/puntuación
+51140,software_developers,substitute,ui,ul,letras/puntuación
+51779,construction_laborers,substitute,[EMAIL],[EMAIL],letras/puntuación (en email)
+55642,elementary_middle_school_teachers,substitute,2021.07-2023.01,2021.07-2023.0,rango de fechas truncado/alterado
+56175,elementary_middle_school_teachers,substitute,2020.02-2023.01,2020.02-2023.0,rango de fechas truncado/alterado
+56190,elementary_middle_school_teachers,substitute,2021.08-2023.01,2021.08-2023.0,rango de fechas truncado/alterado
+56261,elementary_middle_school_teachers,substitute,[EMAIL],[EMAIL],letras/puntuación (en email)
+57824,elementary_middle_school_teachers,substitute,2021.06-2023.01,2021.06-2023.,rango de fechas truncado/alterado
+58192,elementary_middle_school_teachers,substitute,2020.02-2023.01,2020.02-2023.0,rango de fechas truncado/alterado
+58386,elementary_middle_school_teachers,substitute,2018.10-2023.01,2018.10-2023.0,rango de fechas truncado/alterado
+58389,elementary_middle_school_teachers,substitute,2020.02-2023.01,2020.02-2023.,rango de fechas truncado/alterado
+59504,software_developers,substitute,ci,cl,letras/puntuación
+59512,elementary_middle_school_teachers,substitute,2020.06-2023.01,2020.06-2023.0,rango de fechas truncado/alterado
+59833,software_developers,substitute,ui,ul,letras/puntuación
+59955,elementary_middle_school_teachers,substitute,2020.05-2023.01,2020.05-2023.,rango de fechas truncado/alterado
+60924,software_developers,substitute,ci,cl,letras/puntuación

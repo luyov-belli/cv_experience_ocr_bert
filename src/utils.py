@@ -109,6 +109,31 @@ def normalize_for_cer(text: str) -> str:
     return re.sub(r"\s+", " ", text).strip().lower()
 
 
+def reading_order(lines: list[dict], row_tol: float = 0.5) -> str:
+    """Reconstruye el texto en orden de lectura a partir de las cajas del OCR.
+
+    Agrupa en una misma fila las cajas cuyo centro vertical está a menos de
+    `row_tol` alturas de línea; ordena filas de arriba abajo y, dentro de cada
+    fila, de izquierda a derecha. Las plantillas de PopResume son de una sola
+    columna (verificado leyendo 50 CVs), así que no hace falta separar columnas.
+    """
+    if not lines:
+        return ""
+    items = sorted(lines, key=lambda l: (l["box"][1] + l["box"][3]) / 2)
+    rows, current = [], [items[0]]
+    for line in items[1:]:
+        prev = current[-1]
+        h = max(prev["box"][3] - prev["box"][1], line["box"][3] - line["box"][1], 1)
+        dy = abs((line["box"][1] + line["box"][3]) / 2 - (prev["box"][1] + prev["box"][3]) / 2)
+        if dy < row_tol * h:
+            current.append(line)
+        else:
+            rows.append(current)
+            current = [line]
+    rows.append(current)
+    return "\n".join(" ".join(l["text"] for l in sorted(r, key=lambda l: l["box"][0])) for r in rows)
+
+
 def configure_paddle_cache() -> None:
     """En Windows, si la carpeta de usuario tiene caracteres no ASCII (p. ej.
     "Adrián"), el motor C++ de PaddlePaddle no puede leer los modelos guardados ahí.

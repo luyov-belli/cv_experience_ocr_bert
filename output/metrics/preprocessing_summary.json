@@ -1,0 +1,17 @@
+{
+  "n_cvs": 4000,
+  "min_conf": null,
+  "lines_dropped_low_conf": 0,
+  "broken_lines_joined": 0,
+  "pii_lines_removed": 8000,
+  "cvs_with_pii_removed": 4000,
+  "cvs_masked": 0,
+  "masks_by_type": {
+    "total_experience": 0,
+    "age": 0,
+    "birth": 0
+  },
+  "residual_email_or_phone": 0,
+  "residual_state_line": 0,
+  "chars_clean_mean": 510.2
+}

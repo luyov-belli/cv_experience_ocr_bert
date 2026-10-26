@@ -32,7 +32,7 @@ import time
 
 from src.utils import (
     METRICS_DIR, OCR_DIR, RAW_DIR, SAMPLED_IDS, configure_paddle_cache,
-    ensure_dirs, read_csv_ids,
+    ensure_dirs, read_csv_ids, reading_order,
 )
 
 configure_paddle_cache()  # antes de importar paddleocr
@@ -82,31 +82,6 @@ def load_image(path) -> np.ndarray:
     """Lee la imagen desde Python (np.fromfile) en vez de pasarle la ruta a OpenCV,
     que en Windows falla con rutas no ASCII."""
     return cv2.imdecode(np.fromfile(str(path), dtype=np.uint8), cv2.IMREAD_COLOR)
-
-
-def reading_order(lines: list[dict], row_tol: float = 0.5) -> str:
-    """Reconstruye el texto en orden de lectura a partir de las cajas.
-
-    Agrupa en una misma fila las cajas cuyo centro vertical está a menos de
-    `row_tol` alturas de línea; ordena filas de arriba abajo y, dentro de cada
-    fila, de izquierda a derecha. Las plantillas de PopResume son de una sola
-    columna (verificado en la muestra), así que no hace falta separar columnas.
-    """
-    if not lines:
-        return ""
-    items = sorted(lines, key=lambda l: (l["box"][1] + l["box"][3]) / 2)
-    rows, current = [], [items[0]]
-    for line in items[1:]:
-        prev = current[-1]
-        h = max(prev["box"][3] - prev["box"][1], line["box"][3] - line["box"][1], 1)
-        dy = abs((line["box"][1] + line["box"][3]) / 2 - (prev["box"][1] + prev["box"][3]) / 2)
-        if dy < row_tol * h:
-            current.append(line)
-        else:
-            rows.append(current)
-            current = [line]
-    rows.append(current)
-    return "\n".join(" ".join(l["text"] for l in sorted(r, key=lambda l: l["box"][0])) for r in rows)
 
 
 def ocr_one(ocr: PaddleOCR, image_path) -> dict:

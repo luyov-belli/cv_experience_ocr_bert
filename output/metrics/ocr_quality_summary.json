@@ -1,0 +1,21 @@
+{
+  "n_cvs": 4000,
+  "cer_mean": 5.7e-05,
+  "cer_median": 0.0,
+  "cer_p99": 0.002213,
+  "wer_mean": 0.000427,
+  "wer_median": 0.0,
+  "wer_p99": 0.016129,
+  "cvs_with_any_error": 110,
+  "pct_years_read_ok": 100.0,
+  "pct_cvs_all_years_ok": 100.0,
+  "pct_ranges_exact": 99.628253,
+  "pct_cvs_all_ranges_exact": 99.1,
+  "failure_modes": {
+    "letras/puntuación": 61,
+    "rango de fechas truncado/alterado": 36,
+    "letras/puntuación (en email)": 13
+  },
+  "truncated_job_lines": 36,
+  "job_lines": 9684
+}
