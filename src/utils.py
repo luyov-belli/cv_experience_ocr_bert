@@ -61,21 +61,27 @@ def set_seed(seed: int = SEED) -> None:
         pass
 
 
-def get_hf_token() -> str | None:
-    """Lee HF_TOKEN de Colab Secrets, de .env o del entorno, en ese orden."""
-    try:
-        from google.colab import userdata  # type: ignore
+def get_hf_token() -> str:
+    """Lee HF_TOKEN de la variable de entorno o, en la laptop, del archivo .env.
 
-        return userdata.get("HF_TOKEN")
-    except Exception:
-        pass
-    try:
-        from dotenv import load_dotenv
+    En Colab, el notebook copia el Secret a la variable de entorno: los scripts
+    lanzados con `!python ...` corren en otro proceso y no pueden leer los
+    Secrets directamente.
+    """
+    if not os.environ.get("HF_TOKEN"):
+        try:
+            from dotenv import load_dotenv
 
-        load_dotenv(ROOT / ".env")
-    except ImportError:
-        pass
-    return os.environ.get("HF_TOKEN")
+            load_dotenv(ROOT / ".env")
+        except ImportError:
+            pass
+    token = os.environ.get("HF_TOKEN")
+    if not token:
+        raise RuntimeError(
+            "No se encontró HF_TOKEN. En la laptop: ponlo en .env. "
+            "En Colab: corre la celda que lo copia desde los Secrets."
+        )
+    return token
 
 
 def clip_target(y):
