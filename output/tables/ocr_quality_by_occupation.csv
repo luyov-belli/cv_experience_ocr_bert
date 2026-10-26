@@ -1,0 +1,6 @@
+job,n,cer_mean,wer_mean,cvs_with_error,years,years_ok,ranges,ranges_ok,mean_conf,pct_cvs_with_error,pct_years_ok,pct_ranges_exact
+accountants_auditors,800,0.0,3e-05,1,5256,5256,2084,2084,0.99582,0.125,100.0,100.0
+construction_laborers,800,0.0,4e-05,2,4369,4369,1775,1775,0.99584,0.25,100.0,100.0
+elementary_middle_school_teachers,800,0.00011,0.00071,42,5151,5151,1983,1947,0.99527,5.25,100.0,98.18457
+registered_nurses,800,0.0,4e-05,2,4791,4791,1938,1938,0.99427,0.25,100.0,100.0
+software_developers,800,0.00016,0.00133,63,4862,4862,1904,1904,0.99548,7.875,100.0,100.0
