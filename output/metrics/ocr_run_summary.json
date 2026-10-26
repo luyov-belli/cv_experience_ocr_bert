@@ -1,0 +1,22 @@
+{
+  "det_model": "PP-OCRv6_medium_det",
+  "rec_model": "PP-OCRv6_medium_rec",
+  "flags": {
+    "use_doc_orientation_classify": false,
+    "use_doc_unwarping": false,
+    "use_textline_orientation": false
+  },
+  "hardware": {
+    "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+    "python": "3.13.16",
+    "paddle": "3.3.1",
+    "cpu": "x86_64",
+    "gpu": "Tesla T4"
+  },
+  "n_requested": 4000,
+  "n_ok": 4000,
+  "n_failed": 0,
+  "secs_per_cv_mean": 0.55,
+  "secs_per_cv_median": 0.545,
+  "mean_conf": 0.9953
+}
