@@ -6,7 +6,10 @@ Por cada ocupación:
   3. Baraja con semilla 42 y buffer de 5,000, y toma N (800 por defecto).
   4. Guarda la imagen original (sin recomprimir) y sus metadatos.
 
-Luego carga la config `text` y guarda SOLO (uid, text) de los CVs muestreados.
+Luego carga la config `text` y guarda SOLO (id, text) de los CVs muestreados.
+
+El `id` de PopResume es único en todo el dataset (60,884 ids distintos, ninguno
+repetido entre ocupaciones), así que es la llave de todo el proyecto.
 Ese texto se usa únicamente para medir el error del OCR, nunca como entrada de un modelo.
 
 Uso:
@@ -36,12 +39,6 @@ METADATA_CSV = RAW_DIR / "metadata.csv"
 REFERENCE_TEXT = RAW_DIR / "reference_text.parquet"
 
 
-def make_uid(job: str, cv_id: str) -> str:
-    """El `id` de PopResume se repite entre ocupaciones (p. ej. "00018"), así que
-    el identificador único del proyecto combina ocupación e id."""
-    return f"{job}__{cv_id}"
-
-
 def sample_occupation(job: str, n: int, token: str | None,
                       buffer_size: int = SHUFFLE_BUFFER) -> list[dict]:
     ds = load_dataset(
@@ -60,25 +57,22 @@ def sample_occupation(job: str, n: int, token: str | None,
 
     rows = []
     for row in tqdm(ds.take(n), total=n, desc=job):
-        uid = make_uid(row["job"], row["id"])
         img_bytes = row["image"]["bytes"]
         fmt = (PILImage.open(io.BytesIO(img_bytes)).format or "PNG").lower()
         ext = "jpg" if fmt == "jpeg" else fmt
-        img_path = IMAGES_DIR / f"{uid}.{ext}"
+        img_path = IMAGES_DIR / f"{row['id']}.{ext}"
         img_path.write_bytes(img_bytes)
 
         meta = {k: v for k, v in row.items() if k != "image"}
-        meta["uid"] = uid
         meta["image_path"] = img_path.relative_to(RAW_DIR).as_posix()
         rows.append(meta)
     return rows
 
 
-def fetch_reference_text(uids: set[str], token: str | None) -> pd.DataFrame:
+def fetch_reference_text(ids: set[str], token: str | None) -> pd.DataFrame:
     text = load_dataset(HF_DATASET, "text", split="train", token=token).to_pandas()
-    text["uid"] = [make_uid(j, i) for j, i in zip(text["job"], text["id"])]
-    # Solo uid y text: el resto de columnas ya está en metadata.csv
-    return text.loc[text["uid"].isin(uids), ["uid", "text"]].reset_index(drop=True)
+    # Solo id y text: el resto de columnas ya está en metadata.csv
+    return text.loc[text["id"].isin(ids), ["id", "text"]].reset_index(drop=True)
 
 
 def main(n_per_occupation: int, occupations: list[str], buffer_size: int) -> None:
@@ -90,19 +84,19 @@ def main(n_per_occupation: int, occupations: list[str], buffer_size: int) -> Non
     for job in occupations:
         rows += sample_occupation(job, n_per_occupation, token, buffer_size)
     meta = pd.DataFrame(rows)
-    first = ["uid", "job", "id", "image_path", TARGET]
+    first = ["id", "job", "image_path", TARGET]
     meta = meta[first + [c for c in meta.columns if c not in first]]
 
-    assert meta["uid"].is_unique, "uid duplicado: revisar el muestreo"
+    assert meta["id"].is_unique, "id duplicado: revisar el muestreo"
     assert not meta["has_photo"].any(), "se coló un CV con foto"
 
     # metadata.csv (gitignored) guarda todo, incluidos los atributos sensibles,
     # que solo se usarán en el chequeo de equidad.
     meta.to_csv(METADATA_CSV, index=False)
     # sampled_ids.csv (versionado) guarda solo lo necesario para reproducir la muestra.
-    meta[["uid", "job", "id", "file_name", TARGET]].to_csv(SAMPLED_IDS, index=False)
+    meta[["id", "job", "file_name", TARGET]].to_csv(SAMPLED_IDS, index=False)
 
-    ref = fetch_reference_text(set(meta["uid"]), token)
+    ref = fetch_reference_text(set(meta["id"]), token)
     ref.to_parquet(REFERENCE_TEXT, index=False)
 
     print(f"\nCVs muestreados: {len(meta)}")
