@@ -22,6 +22,7 @@ OUTPUT = ROOT / "output"
 FIGURES_DIR = OUTPUT / "figures"
 TABLES_DIR = OUTPUT / "tables"
 METRICS_DIR = OUTPUT / "metrics"
+PREDICTIONS_DIR = OUTPUT / "predictions"  # una fila por (modelo, partición, CV)
 
 # --- Datos ---
 HF_DATASET = "sumin-yu/PopResume"
@@ -157,7 +158,40 @@ def read_csv_ids(path, **kwargs):
     return pd.read_csv(path, dtype={"id": str}, **kwargs)
 
 
+def lower_text(text: str) -> str:
+    """Preprocesador de TF-IDF con dígitos. Vive aquí (y no como lambda en el script)
+    para que el vectorizador guardado se pueda cargar desde la app."""
+    return text.lower()
+
+
+def lower_text_no_digits(text: str) -> str:
+    """Preprocesador de TF-IDF sin dígitos: borra todos los números."""
+    import re
+
+    return re.sub(r"\d", " ", text.lower())
+
+
+def load_splits() -> dict:
+    """Devuelve {"train", "val", "test"} -> DataFrame con id, job, exp_year (recortado
+    al tope), band, text_clean (OCR limpio) y text_ref_clean (referencia limpia).
+
+    Todos los modelos cargan los datos por aquí: mismo split, mismo texto, mismo
+    objetivo. text_ref_clean solo se usa para evaluar (pregunta Q2), nunca para entrenar.
+    """
+    import pandas as pd
+
+    text = pd.read_parquet(PROCESSED_DIR / "cv_text.parquet",
+                           columns=["id", "text_clean", "text_ref_clean"])
+    out = {}
+    for name in ("train", "val", "test"):
+        df = read_csv_ids(SPLITS_DIR / f"{name}.csv").merge(text, on="id", how="left")
+        assert df["text_clean"].notna().all(), f"faltan textos en {name}"
+        df[TARGET] = clip_target(df[TARGET])
+        out[name] = df
+    return out
+
+
 def ensure_dirs() -> None:
     for d in [RAW_DIR, OCR_DIR, PROCESSED_DIR, SPLITS_DIR, MODELS_DIR / "baselines",
-              MODELS_DIR / "bert", FIGURES_DIR, TABLES_DIR, METRICS_DIR]:
+              MODELS_DIR / "bert", FIGURES_DIR, TABLES_DIR, METRICS_DIR, PREDICTIONS_DIR]:
         d.mkdir(parents=True, exist_ok=True)

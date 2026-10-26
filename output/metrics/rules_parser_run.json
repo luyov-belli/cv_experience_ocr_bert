@@ -1,0 +1,16 @@
+{
+  "model": "rules_parser",
+  "val_metrics": {
+    "mae": 0.02405048569565089,
+    "rmse": 0.043525922264016026,
+    "within_1": 1.0,
+    "within_2": 1.0,
+    "within_3": 1.0,
+    "band_acc": 0.9833333333333333,
+    "band_macro_f1": 0.9847987663539127,
+    "r2": 0.9999045878092232
+  },
+  "train_secs": 0.0,
+  "infer_secs_per_cv": 1.2063333318413546e-05,
+  "mean_signed_error_train": 0.013828079824527788
+}
