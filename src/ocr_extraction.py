@@ -12,9 +12,16 @@ Al final escribe en output/metrics/:
   - ocr_run_summary.json: hardware, modelo, tiempos y confianza agregados.
 
 Uso:
-    python -m src.ocr_extraction                  # PP-OCRv5_server, todos los CVs
+    python -m src.ocr_extraction                  # PP-OCRv6_medium, todos los CVs
     python -m src.ocr_extraction --limit 10       # prueba rápida
     python -m src.ocr_extraction --model mobile   # otro modelo
+
+Modelo elegido (decisión C) con --compare 10 en una Tesla T4, 50 CVs:
+    modelo      seg/CV   CER medio   CER máx   WER medio
+    v5 mobile    0.29     0.35%       1.16%     5.4%
+    v5 server    0.63     0.70%       1.63%     8.6%
+    v6 medium    0.54     0.00%       0.16%     0.03%   <- elegido
+v6 es el más preciso en todas las métricas y además más rápido que v5 server.
     python -m src.ocr_extraction --compare 10     # comparar modelos (10 CVs por ocupación)
 """
 
@@ -213,7 +220,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     parser.add_argument("--compare", type=int, metavar="N_POR_OCUPACION",
                         help="comparar los modelos en N CVs por ocupación y salir")
-    parser.add_argument("--model", choices=MODELS, default="server")
+    parser.add_argument("--model", choices=MODELS, default="v6")
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--overwrite", action="store_true")
     parser.add_argument("--only-available", action="store_true",

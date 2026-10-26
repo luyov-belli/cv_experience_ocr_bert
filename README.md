@@ -24,7 +24,7 @@ Sistema de punta a punta que lee **imágenes de CVs** con **PaddleOCR** y predic
 |---|---|---|
 | Muestra | 4,000 CVs sin foto (800 por ocupación), semilla 42 | Potencia estadística; el cómputo pesado corre en una GPU de Colab |
 | Tope del objetivo | 20 años (se revisa con la regla del 15%) | — |
-| OCR | PaddleOCR 3.x, `PP-OCRv5_server`, `lang="en"`, orientación, desenrollado y orientación de línea apagados | Precisión en dígitos; imágenes sintéticas planas y derechas |
+| OCR | PaddleOCR 3.7, `PP-OCRv6_medium` (det + rec), orientación, desenrollado y orientación de línea apagados | En 50 CVs sobre una T4: CER 0.00% y WER 0.03%, frente a 0.35%/5.4% (v5 mobile) y 0.70%/8.6% (v5 server); 0.54 s/CV. Imágenes sintéticas planas y derechas |
 | Orden de lectura | Detección de columnas por agrupación en x | Mantiene cada fecha junto a su puesto |
 | Confianza baja | No se descartan líneas (variante en Q3) | Las líneas con fechas tienden a tener menor confianza |
 | Enmascarado | Regex conservadora (experiencia total, edad, fecha de nacimiento) | Evita fuga de información sin borrar fechas de trabajo |
