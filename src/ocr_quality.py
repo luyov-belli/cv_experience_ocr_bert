@@ -113,6 +113,11 @@ def main() -> None:
 
     diffs = pd.DataFrame(diffs, columns=["id", "job", "type", "ref", "ocr"])
     diffs["failure_mode"] = diffs.apply(classify, axis=1) if len(diffs) else []
+    # Errores dentro de emails: se conserva el modo de falla pero no el email (contiene
+    # el nombre de la persona y el repo es público).
+    is_email = diffs["ref"].str.contains("@") | diffs["ocr"].str.contains("@")
+    diffs.loc[is_email, ["ref", "ocr"]] = "[EMAIL]"
+    diffs.loc[is_email, "failure_mode"] = "letras/puntuación (en email)"
     diffs.to_csv(TABLES_DIR / "ocr_errors.csv", index=False)
 
     job_lines = pd.DataFrame(job_lines)

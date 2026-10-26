@@ -5,7 +5,7 @@ id,job,type,ref,ocr,failure_mode
 01149,software_developers,substitute,ci,cl,letras/puntuación
 02133,elementary_middle_school_teachers,substitute,2020.01-2023.01,2020.01-2023.0,rango de fechas truncado/alterado
 02492,elementary_middle_school_teachers,substitute,2020.04-2022.06,2020.04-2022.0,rango de fechas truncado/alterado
-02577,construction_laborers,substitute,lyle.walker@example.com,iyle.walker@example.com,letras/puntuación
+02577,construction_laborers,substitute,[EMAIL],[EMAIL],letras/puntuación (en email)
 02606,software_developers,substitute,ui,ul,letras/puntuación
 02883,elementary_middle_school_teachers,substitute,2020.01-2022.06,2020.01-2022.0,rango de fechas truncado/alterado
 02903,software_developers,substitute,ui,ul,letras/puntuación
@@ -13,14 +13,14 @@ id,job,type,ref,ocr,failure_mode
 04108,software_developers,substitute,ci,cl,letras/puntuación
 04219,software_developers,substitute,ci,cl,letras/puntuación
 04284,software_developers,substitute,ui,ul,letras/puntuación
-04373,software_developers,substitute,bishop.lynn@example.com,bishop.iynn@example.com,letras/puntuación
+04373,software_developers,substitute,[EMAIL],[EMAIL],letras/puntuación (en email)
 04407,software_developers,substitute,ci,cl,letras/puntuación
 04591,elementary_middle_school_teachers,substitute,2021.01-2023.01,2021.01-2023.,rango de fechas truncado/alterado
 08199,software_developers,substitute,ci,cl,letras/puntuación
 08329,software_developers,substitute,ui,ul,letras/puntuación
 08360,software_developers,substitute,ui,ul,letras/puntuación
 08583,software_developers,substitute,ci,cl,letras/puntuación
-08643,accountants_auditors,substitute,elizabeth.lloyd@example.com,elizabeth.iloyd@example.com,letras/puntuación
+08643,accountants_auditors,substitute,[EMAIL],[EMAIL],letras/puntuación (en email)
 08737,software_developers,substitute,ui,ul,letras/puntuación
 09006,software_developers,substitute,ci,cl,letras/puntuación
 09125,software_developers,substitute,ci,cl,letras/puntuación
@@ -34,7 +34,7 @@ id,job,type,ref,ocr,failure_mode
 10223,software_developers,substitute,ci,cl,letras/puntuación
 10320,software_developers,substitute,ui,ul,letras/puntuación
 10860,software_developers,substitute,ui,ul,letras/puntuación
-11219,software_developers,substitute,levi.macdonald@example.com,ievi.macdonald@example.com,letras/puntuación
+11219,software_developers,substitute,[EMAIL],[EMAIL],letras/puntuación (en email)
 13861,elementary_middle_school_teachers,substitute,2019.02-2020.05,2019.02-2020.0,rango de fechas truncado/alterado
 14315,elementary_middle_school_teachers,substitute,2021.06-2023.01,2021.06-2023.,rango de fechas truncado/alterado
 14828,elementary_middle_school_teachers,substitute,2020.10-2023.01,2020.10-2023.0,rango de fechas truncado/alterado
@@ -43,7 +43,7 @@ id,job,type,ref,ocr,failure_mode
 16103,elementary_middle_school_teachers,substitute,2022.03-2023.01,2022.03-2023.,rango de fechas truncado/alterado
 16222,elementary_middle_school_teachers,substitute,2020.04-2023.01,2020.04-2023.0,rango de fechas truncado/alterado
 16418,elementary_middle_school_teachers,substitute,2020.02-2023.01,2020.02-2023.0,rango de fechas truncado/alterado
-16910,elementary_middle_school_teachers,substitute,latisha.mathews@example.com,iatisha.mathews@example.com,letras/puntuación
+16910,elementary_middle_school_teachers,substitute,[EMAIL],[EMAIL],letras/puntuación (en email)
 25027,elementary_middle_school_teachers,substitute,2020.10-2023.01,2020.10-2023.0,rango de fechas truncado/alterado
 25269,elementary_middle_school_teachers,substitute,2017.10-2023.01,2017.10-2023.,rango de fechas truncado/alterado
 25512,software_developers,substitute,ci,cl,letras/puntuación
@@ -70,20 +70,20 @@ id,job,type,ref,ocr,failure_mode
 45318,software_developers,substitute,ui,ul,letras/puntuación
 45453,software_developers,substitute,ci,cl,letras/puntuación
 45663,elementary_middle_school_teachers,substitute,2020.03-2023.01,2020.03-2023.,rango de fechas truncado/alterado
-45811,elementary_middle_school_teachers,substitute,laura.bernard@example.com,ilaura.bernard@example.com,letras/puntuación
-46226,elementary_middle_school_teachers,substitute,lyman.combs@example.com,ilyman.combs@example.com,letras/puntuación
+45811,elementary_middle_school_teachers,substitute,[EMAIL],[EMAIL],letras/puntuación (en email)
+46226,elementary_middle_school_teachers,substitute,[EMAIL],[EMAIL],letras/puntuación (en email)
 46264,software_developers,substitute,ci,cl,letras/puntuación
 46314,software_developers,substitute,ui,ul,letras/puntuación
 46361,software_developers,substitute,ui,ul,letras/puntuación
 46944,software_developers,substitute,ci,cl,letras/puntuación
-47013,elementary_middle_school_teachers,substitute,lara.stephens@example.com,ilara.stephens@example.com,letras/puntuación
-47045,elementary_middle_school_teachers,substitute,llesenia.landry@example.com,ilesenia.landry@example.com,letras/puntuación
+47013,elementary_middle_school_teachers,substitute,[EMAIL],[EMAIL],letras/puntuación (en email)
+47045,elementary_middle_school_teachers,substitute,[EMAIL],[EMAIL],letras/puntuación (en email)
 47372,elementary_middle_school_teachers,substitute,2019.07-2021.07,2019.07-2021.0,rango de fechas truncado/alterado
-47574,registered_nurses,substitute,larena.hart@example.com,iarena.hart@example.com,letras/puntuación
+47574,registered_nurses,substitute,[EMAIL],[EMAIL],letras/puntuación (en email)
 47662,elementary_middle_school_teachers,substitute,2020.09-2023.01,2020.09-2023.0,rango de fechas truncado/alterado
 47851,software_developers,substitute,ci,cl,letras/puntuación
 48015,software_developers,substitute,ci,cl,letras/puntuación
-48105,registered_nurses,substitute,leslie.steele@example.com,ieslie.steele@example.com,letras/puntuación
+48105,registered_nurses,substitute,[EMAIL],[EMAIL],letras/puntuación (en email)
 48206,elementary_middle_school_teachers,substitute,2020.06-2022.04,2020.06-2022.,rango de fechas truncado/alterado
 48304,elementary_middle_school_teachers,substitute,2019.09-2023.01,2019.09-2023.0,rango de fechas truncado/alterado
 48341,elementary_middle_school_teachers,substitute,2021.01-2023.01,2021.01-2023.0,rango de fechas truncado/alterado
@@ -95,11 +95,11 @@ id,job,type,ref,ocr,failure_mode
 50658,software_developers,substitute,ui,ul,letras/puntuación
 51093,software_developers,substitute,ui,ul,letras/puntuación
 51140,software_developers,substitute,ui,ul,letras/puntuación
-51779,construction_laborers,substitute,luke.cline@example.com,iuke.cline@example.com,letras/puntuación
+51779,construction_laborers,substitute,[EMAIL],[EMAIL],letras/puntuación (en email)
 55642,elementary_middle_school_teachers,substitute,2021.07-2023.01,2021.07-2023.0,rango de fechas truncado/alterado
 56175,elementary_middle_school_teachers,substitute,2020.02-2023.01,2020.02-2023.0,rango de fechas truncado/alterado
 56190,elementary_middle_school_teachers,substitute,2021.08-2023.01,2021.08-2023.0,rango de fechas truncado/alterado
-56261,elementary_middle_school_teachers,substitute,latisha.farmer@example.com,iatisha.farmer@example.com,letras/puntuación
+56261,elementary_middle_school_teachers,substitute,[EMAIL],[EMAIL],letras/puntuación (en email)
 57824,elementary_middle_school_teachers,substitute,2021.06-2023.01,2021.06-2023.,rango de fechas truncado/alterado
 58192,elementary_middle_school_teachers,substitute,2020.02-2023.01,2020.02-2023.0,rango de fechas truncado/alterado
 58386,elementary_middle_school_teachers,substitute,2018.10-2023.01,2018.10-2023.0,rango de fechas truncado/alterado
