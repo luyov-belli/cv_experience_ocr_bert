@@ -25,19 +25,22 @@ METRICS_DIR = OUTPUT / "metrics"
 
 # --- Datos ---
 HF_DATASET = "sumin-yu/PopResume"
+# Prefijos de los shards en data/images/ y valores de la columna `job`
 OCCUPATIONS = [
-    "registered_nurses",
-    "elementary_and_middle_school_teachers",
-    "software_developers",
-    "accountants_and_auditors",
+    "accountants_auditors",
     "construction_laborers",
-]  # TODO: confirmar los nombres exactos de las configs/particiones en Hugging Face
+    "elementary_middle_school_teachers",
+    "registered_nurses",
+    "software_developers",
+]
 N_PER_OCCUPATION = 800
 
 # --- Objetivo ---
 TARGET = "exp_year"
 TARGET_CAP = 20  # se revisa tras ver la distribución (regla del 15%)
-BANDS = [(0, 2), (3, 5), (6, 10), (11, TARGET_CAP)]
+# exp_year es continuo (p. ej. 2.7), así que las bandas del enunciado (0-2, 3-5,
+# 6-10, 11-20) se interpretan como intervalos [0,3), [3,6), [6,11), [11,cap].
+BAND_EDGES = [0, 3, 6, 11]
 BAND_LABELS = ["0-2", "3-5", "6-10", f"11-{TARGET_CAP}"]
 
 # Columnas que nunca pueden ser features (sex y race solo para el chequeo de equidad)
@@ -81,12 +84,10 @@ def clip_target(y):
 
 
 def to_band(y):
-    """Convierte años a etiqueta de banda (0-2, 3-5, 6-10, 11-cap)."""
-    y = np.rint(clip_target(np.asarray(y, dtype=float))).astype(int)
-    out = np.empty(len(y), dtype=object)
-    for (lo, hi), label in zip(BANDS, BAND_LABELS):
-        out[(y >= lo) & (y <= hi)] = label
-    return out
+    """Convierte años (continuos) a etiqueta de banda (0-2, 3-5, 6-10, 11-cap)."""
+    y = clip_target(np.asarray(y, dtype=float))
+    idx = np.searchsorted(BAND_EDGES, y, side="right") - 1
+    return np.asarray(BAND_LABELS, dtype=object)[idx]
 
 
 def ensure_dirs() -> None:
