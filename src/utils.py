@@ -96,6 +96,35 @@ def to_band(y):
     return np.asarray(BAND_LABELS, dtype=object)[idx]
 
 
+def normalize_for_cer(text: str) -> str:
+    """Normalización común al texto del OCR y al de referencia antes de CER/WER:
+    Unicode NFKC, guiones y viñetas unificados, minúsculas y espacios colapsados.
+    Así el error mide lo que se leyó mal, no diferencias tipográficas."""
+    import re
+    import unicodedata
+
+    text = unicodedata.normalize("NFKC", text or "")
+    text = re.sub(r"[‐-―−�]", "-", text)  # guiones largos y el carácter roto
+    text = re.sub(r"[•·▪●]", "-", text)                       # viñetas
+    return re.sub(r"\s+", " ", text).strip().lower()
+
+
+def configure_paddle_cache() -> None:
+    """En Windows, si la carpeta de usuario tiene caracteres no ASCII (p. ej.
+    "Adrián"), el motor C++ de PaddlePaddle no puede leer los modelos guardados ahí.
+    Se redirige la caché de modelos a la ruta corta 8.3 (C:\\Users\\ADRINL~1), que
+    es ASCII. Debe llamarse ANTES de importar paddleocr. En Linux/Colab no hace nada.
+    """
+    home = Path.home()
+    if os.name != "nt" or str(home).isascii() or "PADDLE_PDX_CACHE_HOME" in os.environ:
+        return
+    import ctypes
+
+    buf = ctypes.create_unicode_buffer(260)
+    ctypes.windll.kernel32.GetShortPathNameW(str(home), buf, 260)
+    os.environ["PADDLE_PDX_CACHE_HOME"] = str(Path(buf.value) / ".paddlex")
+
+
 def read_csv_ids(path, **kwargs):
     """Lee un CSV del proyecto conservando `id` como texto ("00018", no 18)."""
     import pandas as pd
