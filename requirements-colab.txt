@@ -3,7 +3,8 @@
 # Colab trae su propio stack científico (numpy, pandas, pyarrow, scipy, torch con
 # CUDA...) del que dependen sus herramientas internas (p. ej. google-colab exige
 # una versión exacta de pandas). Por eso aquí NO se fijan esas librerías: el
-# notebook las congela en la versión que ya trae Colab.
+# notebook congela numpy, pandas y torch en la versión que ya trae Colab.
+# pyarrow sí puede subir (datasets exige >=24; solo cudf, que no usamos, pide <24).
 #
 # Solo se fijan las librerías que determinan los resultados de las etapas que
 # corren en Colab (descarga, OCR y fine-tuning), con las mismas versiones que
