@@ -90,6 +90,13 @@ def to_band(y):
     return np.asarray(BAND_LABELS, dtype=object)[idx]
 
 
+def read_csv_ids(path, **kwargs):
+    """Lee un CSV del proyecto conservando `id` como texto ("00018", no 18)."""
+    import pandas as pd
+
+    return pd.read_csv(path, dtype={"id": str}, **kwargs)
+
+
 def ensure_dirs() -> None:
     for d in [RAW_DIR, OCR_DIR, PROCESSED_DIR, SPLITS_DIR, MODELS_DIR / "baselines",
               MODELS_DIR / "bert", FIGURES_DIR, TABLES_DIR, METRICS_DIR]:

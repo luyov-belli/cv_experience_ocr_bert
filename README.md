@@ -36,7 +36,7 @@ Sistema de punta a punta que lee **imágenes de CVs** con **PaddleOCR** y predic
 ## Entorno
 
 - **Laptop (CPU):** Python 3.12, entorno virtual `.venv`. Limpieza, split, líneas base, evaluación y app.
-- **Google Colab (GPU T4):** OCR masivo y fine-tuning de ModernBERT. Colab clona este repo, corre los scripts de `src/` y guarda las salidas en Google Drive.
+- **Google Colab (GPU T4):** OCR masivo y fine-tuning de ModernBERT. Colab clona este repo, corre los scripts de `src/` y guarda las salidas en Google Drive. Usa `requirements-colab.txt`, que fija solo las librerías del proyecto y respeta el stack científico que trae Colab.
 
 ```bash
 py -V:3.12 -m venv .venv
