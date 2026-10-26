@@ -1,0 +1,72 @@
+{
+  "model": "tfidf_ridge_nodigits",
+  "digits": false,
+  "ngram_range": [
+    1,
+    2
+  ],
+  "min_df": 2,
+  "vocab_size": 10137,
+  "alpha_grid_val_mae": {
+    "0.001": 2.2834856753140254,
+    "0.00316228": 2.265990486036049,
+    "0.01": 2.2189196226821544,
+    "0.0316228": 2.1094049710073572,
+    "0.1": 1.9280584814376205,
+    "0.316228": 1.747536279242326,
+    "1": 1.671085781051702,
+    "3.16228": 1.868083585455591,
+    "10": 2.4812257276735865,
+    "31.6228": 3.0573976529647293,
+    "100": 3.380079597058309,
+    "316.228": 3.5146512856444025,
+    "1000": 3.5636428507000537
+  },
+  "best_alpha": 1.0,
+  "val_metrics": {
+    "mae": 1.671085781051702,
+    "rmse": 2.3815582969023015,
+    "within_1": 0.4266666666666667,
+    "within_2": 0.7183333333333334,
+    "within_3": 0.8716666666666667,
+    "band_acc": 0.705,
+    "band_macro_f1": 0.6762569916977302,
+    "r2": 0.7143525592324018
+  },
+  "train_secs": 2.7501595999929123,
+  "infer_secs_per_cv": 0.000294530833295236,
+  "top_positive_terms": [
+    "directed",
+    "developed",
+    "designed",
+    "led",
+    "managed",
+    "implemented",
+    "established",
+    "reviewed",
+    "coordinated",
+    "frameworks",
+    "systems",
+    "supervised",
+    "plans",
+    "initiatives",
+    "programs"
+  ],
+  "top_negative_terms": [
+    "education bachelor",
+    "studied",
+    "coursework in",
+    "coursework",
+    "completed",
+    "bachelor",
+    "in",
+    "of",
+    "completed coursework",
+    "education",
+    "university",
+    "history",
+    "work history",
+    "work",
+    "university completed"
+  ]
+}
